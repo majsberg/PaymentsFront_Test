@@ -2,7 +2,7 @@ import requests
 
 
 def get_user(credentials):
-    url = "http://localhost:7999/api/users/"
+    url = "https://majsberg.pythonanywhere.com/api/users/"
     payload = ""
     header_part = f'Basic {credentials}'
     headers = {"Authorization": header_part}
@@ -16,7 +16,7 @@ def get_user(credentials):
 # print(get_user('YWRtaW46MTIzNDU='))
 
 def post_user(login, password):
-    url = "http://localhost:7999/api/users/"
+    url = "https://majsberg.pythonanywhere.com/api/users/"
     headers = {"Content-Type": "application/json"}
     payload = {
         'username': f'{login}',
@@ -28,7 +28,7 @@ def post_user(login, password):
 
 
 def get_apartments(credentials):
-    url = "http://localhost:7999/api/apartments/"
+    url = "https://majsberg.pythonanywhere.com/api/apartments/"
     payload = ""
     header_part = f'Basic {credentials}'
     headers = {"Authorization": header_part}
@@ -40,7 +40,7 @@ def get_apartments(credentials):
 
 
 def post_apartments(credentials, user, name, address):
-    url = "http://localhost:7999/api/apartments/"
+    url = "https://majsberg.pythonanywhere.com/api/apartments/"
     header_part = f'Basic {credentials}'
     headers = {"Content-Type": "application/json",
                "Authorization": header_part}
@@ -56,7 +56,7 @@ def post_apartments(credentials, user, name, address):
 
 
 def get_contracts(credentials):
-    url = "http://localhost:7999/api/contracts/"
+    url = "https://majsberg.pythonanywhere.com/api/contracts/"
     header_part = f'Basic {credentials}'
     headers = {"Authorization": header_part}
     response = requests.request("GET", url, headers=headers)
@@ -67,7 +67,7 @@ def get_contracts(credentials):
 
 
 def post_contract(credentials, name, date, provider, type, apartment_id):
-    url = "http://localhost:7999/api/contracts/"
+    url = "https://majsberg.pythonanywhere.com/api/contracts/"
     header_part = f'Basic {credentials}'
     headers = {"Content-Type": "application/json",
                "Authorization": header_part}
@@ -85,7 +85,7 @@ def post_contract(credentials, name, date, provider, type, apartment_id):
     return response.status_code
 
 def delete_contract(credentials, id):
-    url = f'http://localhost:7999/api/contracts/{id}/'
+    url = f'https://majsberg.pythonanywhere.com/api/contracts/'
     header_part = f'Basic {credentials}'
     headers = {"Content-Type": "application/json",
                "Authorization": header_part}
